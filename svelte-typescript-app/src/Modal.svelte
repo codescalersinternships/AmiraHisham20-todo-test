@@ -122,7 +122,7 @@
   
     {#each todos as todo}
     <div>
-      <input type="checkbox" on:change={(e) => markTask(todo)}>
+      <input type="checkbox" onclick={(e) => markTask(todo)}>
       <h3>{todo.id} {todo.task}</h3>
       <button name="btn" class="btn" on:click={(e) => deleteTodo(todo)}><i calss="fa fa-trash">❌</i></button>
     </div>

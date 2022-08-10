@@ -1,50 +1,47 @@
-import todo from"../../objects/todo"
+import todo from"../../page-objects/todo"
 describe('CypressTest', function(){
 
     before(function(){
-        cy.visit('http://localhost:3001/')
+        cy.visit('/')
     })
 
     it('Create New task',function(){
-        todo.Navigatecreatebtn()
+        todo.createTodo()
     })
 
     it('Delete task by button',function(){
-        todo.Navigatedeletebtn()
+        todo.deleteTodo()
     })
     it('Delete task by mark',function(){
-        todo.Navigatedelete()
+        todo.deleteTodoBymark()
     })
 
     it('Update task',function(){
-        todo.NavigateUpdateebtn()
+        todo.updateTodo()
     })
 
     it('Get task By ID',function(){
-        todo.NavigateGetbtn()
+        todo.getTodo()
     })
     it('Check task by mark',function(){
-        todo.NavigateCheckmark()
+        todo.checkmarkTodo()
     })
     it('Show title',function(){
-        todo.Navigatetitle()
+        todo.showtitle()
     })
     //check of unexsiing key
     it('Delete task by unexsiting ID ',function(){
-        todo.Navigatedeletebtn_wrong_ID()
-    })
-    it('Get task by unexsiting ID ',function(){
-        todo.NavigateGetbtn_wrong_ID()
+        todo.deleteTodo_UnExsiting_ID()
     })
     it('Create task without input task ',function(){
-        todo.Navigatecreatebtn_without_task()
+        todo.createTodo_without_task()
     })
 
     it('Create task with char ID ',function(){
-        todo.Navigatecreatebtn_withCharID()
+        todo.createTodo_withCharID()
     })
     it('Create task with Exsiting ID ',function(){
-        todo.Navigatecreatebtn_withExsiting_ID()
+        todo.createTodo_withExsiting_ID()
     })
     after(function(){
         cy.log('Done')

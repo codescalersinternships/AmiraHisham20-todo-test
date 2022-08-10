@@ -1,4 +1,3 @@
-from multiprocessing.connection import wait
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -17,8 +16,8 @@ class todo(BasePage):
     def Create_New_task(self):
         wait=WebDriverWait(self.driver,60)
         wait.until(EC.visibility_of_element_located((By.XPATH,todopage.ID))).send_keys('10')
-        wait.until(EC.visibility_of_element_located((By.XPATH,todopage.Task))).send_keys('task10')
-        wait.until(EC.visibility_of_element_located((By.XPATH,todopage.CreateBtn))).click()
+        self.driver.find_element(By.XPATH,todopage.Task).send_keys('task10')
+        self.driver.find_element(By.XPATH,todopage.CreateBtn).click()
     #Navigate Delete task by delete mark
     def Delete_task_By_Mark(self):
         wait=WebDriverWait(self.driver,60)
@@ -27,18 +26,18 @@ class todo(BasePage):
     def Delete_task_By_ID(self):
         wait=WebDriverWait(self.driver,60)
         wait.until(EC.visibility_of_element_located((By.XPATH,todopage.ID))).send_keys('9')
-        wait.until(EC.visibility_of_element_located((By.XPATH,todopage.DeleteBtn))).click()
+        self.driver.find_element(By.XPATH,todopage.DeleteBtn).click()
     #Navigate Update task 
     def Update_task(self):
         wait=WebDriverWait(self.driver,60)
         wait.until(EC.visibility_of_element_located((By.XPATH,todopage.ID))).send_keys('9')
-        wait.until(EC.visibility_of_element_located((By.XPATH,todopage.Task))).send_keys('task900')
-        wait.until(EC.visibility_of_element_located((By.XPATH,todopage.UpdateBtn))).click()
+        self.driver.find_element(By.XPATH,todopage.Task).send_keys('task900')
+        self.driver.find_element(By.XPATH,todopage.UpdateBtn).click()
     #Navigate Get task by ID
     def Get_task_By_ID(self):
         wait=WebDriverWait(self.driver,60)
         wait.until(EC.visibility_of_element_located((By.XPATH,todopage.ID))).send_keys('999')
-        wait.until(EC.visibility_of_element_located((By.XPATH,todopage.GetByIDBtn))).click()
+        self.driver.find_element(By.XPATH,todopage.GetByIDBtn).click()
     #Navigate Checkbox task by delete mark
     def Checkbox_Mark(self):
         wait=WebDriverWait(self.driver,60)
@@ -47,28 +46,26 @@ class todo(BasePage):
     def Get_task_By_NoID(self):
         wait=WebDriverWait(self.driver,60)
         wait.until(EC.visibility_of_element_located((By.XPATH,todopage.ID))).send_keys('25')
-        wait.until(EC.visibility_of_element_located((By.XPATH,todopage.GetByIDBtn))).click()
+        self.driver.find_element(By.XPATH,todopage.GetByIDBtn).click()
     #Delete task by not exsiting ID
     def Delete_task_By_NoID(self):
         wait=WebDriverWait(self.driver,60)
         wait.until(EC.visibility_of_element_located((By.XPATH,todopage.ID))).send_keys('30')
-        wait.until(EC.visibility_of_element_located((By.XPATH,todopage.DeleteBtn))).click()
+        self.driver.find_element(By.XPATH,todopage.DeleteBtn).click()
     #Create without enter task name
     def Create_New_task_without_taskname(self):
         wait=WebDriverWait(self.driver,60)
         wait.until(EC.visibility_of_element_located((By.XPATH,todopage.ID))).send_keys('88')
-        wait.until(EC.visibility_of_element_located((By.XPATH,todopage.CreateBtn))).click()
+        self.driver.find_element(By.XPATH,todopage.CreateBtn).click()
     #Create with Char ID
     def Create_New_task_with_CharID(self):
         wait=WebDriverWait(self.driver,60)
         wait.until(EC.visibility_of_element_located((By.XPATH,todopage.ID))).send_keys('Amira')
-        wait.until(EC.visibility_of_element_located((By.XPATH,todopage.Task))).send_keys('projec')
-        wait.until(EC.visibility_of_element_located((By.XPATH,todopage.CreateBtn))).click()
+        self.driver.find_element(By.XPATH,todopage.Task).send_keys('projec')
+        self.driver.find_element(By.XPATH,todopage.CreateBtn).click()
     #Create with Exsiting ID
     def Create_New_task_WithExsitingID(self):
         wait=WebDriverWait(self.driver,60)
         wait.until(EC.visibility_of_element_located((By.XPATH,todopage.ID))).send_keys('2')
         wait.until(EC.visibility_of_element_located((By.XPATH,todopage.Task))).send_keys('Hisham')
-        wait.until(EC.visibility_of_element_located((By.XPATH,todopage.CreateBtn))).click()    
-        
-
+        self.driver.find_element(By.XPATH,todopage.CreateBtn).click()   
